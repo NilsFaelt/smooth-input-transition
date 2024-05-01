@@ -1,28 +1,14 @@
-# React + TypeScript + Vite
+This is an example demonstrating smooth transitions between input fields triggered by pressing the Enter key. The component uses React hooks (`useEffect`, `useState`, `useRef`) to manage the input fields and their focus.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- `numberOfInputs` is an array containing 4 elements, used to render 4 input fields.
+- `currentlyFocused` and `key` are state variables used to track the currently focused input field and the key pressed.
+- Four refs (`ref1`, `ref2`, `ref3`, `ref4`) are created using `useRef` to reference the input fields.
+- A `refMap` is created as a Map to hold the refs, indexed by strings like "ref1", "ref2", etc.
+- The `handleChange` function updates the `currentlyFocused` state variable when an input field is changed.
+- The `handleKeyDown` function updates the `key` state variable when the Enter key is pressed.
+- Two `useEffect` hooks are used to set focus on the first input field initially and to handle transitions between input fields when Enter is pressed.
+- Inside the return statement, the component maps over `numberOfInputs` to render the input fields, using the `refMap` to assign refs to each input field.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
